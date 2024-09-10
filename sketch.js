@@ -57,15 +57,15 @@ function draw() {
 		let y = (noise(frameCount * 0.069 + i * 0.067 * fr) - 0.5) * 520 * fr;
     
 		// lines
-		if (i % 2 == 0) {
-			strokeWeight(map(i, 50, 0, 16, 0));
-			line(x, y, 540, 0);
-			line(x, y, -540, 0);
-			line(x, y, 270, -467.65);
-			line(x, y, 270, 467.65);
-			line(x, y, -270, -467.65);
-			line(x, y, -270, 467.65);
-		}
+		// if (i % 2 == 0) {
+		// 	strokeWeight(map(i, 50, 0, 16, 0));
+		// 	line(x, y, 540, 0);
+		// 	line(x, y, -540, 0);
+		// 	line(x, y, 270, -467.65);
+		// 	line(x, y, 270, 467.65);
+		// 	line(x, y, -270, -467.65);
+		// 	line(x, y, -270, 467.65);
+		// }
 
 		// color
 		strokeWeight(2);
