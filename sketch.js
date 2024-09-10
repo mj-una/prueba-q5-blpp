@@ -2,12 +2,22 @@
 // blipip soon
 
 let o, s, d, p, e;
+let dejavu;
+
+function preload() {
+	dejavu = loadFont("./fonts/DejaVuSansMono.ttf");
+}
 
 function setup() {
 	createCanvas(540, 960);
 	displayMode("maxed"); // love it!!!
 
+	textFont(dejavu);
+	textSize(20);
+	textAlign(CENTER, CENTER);
 	angleMode(DEGREES);
+	rectMode(CENTER);
+	strokeWeight(2);
   frameRate(25);
 
 	s = 1; // slowing
@@ -22,6 +32,7 @@ function draw() {
 	// polar coordinates
 	translate(270, 480); 
   
+	// repeat for 50 circles
   for (let i = 50; i > 0; i--) {
     
 		// rhythm
@@ -55,30 +66,28 @@ function draw() {
 		// position
 		let x = (noise(frameCount * 0.031 + i * 0.079 * fr) - 0.5) * 390 * fr;
 		let y = (noise(frameCount * 0.069 + i * 0.067 * fr) - 0.5) * 520 * fr;
-    
-		// lines
-		// if (i % 2 == 0) {
-		// 	strokeWeight(map(i, 50, 0, 16, 0));
-		// 	line(x, y, 540, 0);
-		// 	line(x, y, -540, 0);
-		// 	line(x, y, 270, -467.65);
-		// 	line(x, y, 270, 467.65);
-		// 	line(x, y, -270, -467.65);
-		// 	line(x, y, -270, 467.65);
-		// }
 
-		// color
-		strokeWeight(2);
+		// circles
+		push();
     stroke(9, 5, 6, 4 * (50 - i));
     fill(
-      constrain(map(r, -1, 1, 120, 255) - i * 4, 9, 255),
+      constrain(map(r, -1, 1, 120, 295) - i * 4, 9, 255),
       constrain(map(r, -1, 1, 170, 190) - i * 5, 5, 255),
-      constrain(255 - i * 6, 6, 255)
+      constrain(255 - i * 6, 6, 265)
     );
-
-		// shape
-    circle(x, y, (i + 1) * 23);
+    circle(x, y, (i + 0.5) * 22);
+		pop();
   }
+
+	// button previw (the ui will be in blipip.html)
+	push();
+	stroke(200, 100, 190, 60);
+	fill(200, 100, 190, 10);
+	rect(0, -421, 50, 30, 6);
+	noStroke();
+	fill(200, 100, 190, 90)
+	text("esc", 0, -420)
+	pop();
 
 	// fps?
 	// if (frameCount % 90 == 1) console.log(frameRate());
