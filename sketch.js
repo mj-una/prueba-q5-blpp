@@ -53,8 +53,8 @@ function draw() {
 		}
 
 		// position
-		let x = (noise(frameCount * 0.051 + i * 0.079 * fr) - 0.5) * 440 * fr;
-		let y = (noise(frameCount * 0.089 + i * 0.067 * fr) - 0.5) * 580 * fr;
+		let x = (noise(frameCount * 0.031 + i * 0.079 * fr) - 0.5) * 390 * fr;
+		let y = (noise(frameCount * 0.069 + i * 0.067 * fr) - 0.5) * 520 * fr;
     
 		// lines
 		if (i % 2 == 0) {
