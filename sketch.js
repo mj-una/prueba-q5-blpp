@@ -1,7 +1,9 @@
 // first test of q5
 // blipip soon
 
-let o, s, d, p, e;
+let slowing, delta;
+let pressed, ended;
+
 let dejavu;
 
 function preload() {
@@ -20,10 +22,10 @@ function setup() {
 	strokeWeight(2);
   frameRate(25);
 
-	s = 1; // slowing
-	d = 0.01; // delta
-	p = true; // press
-	e = false; // end
+	slowing = 1;
+	delta = 0.01;
+	pressed = true;
+	ended = false;
 }
 
 function draw() {
@@ -41,25 +43,25 @@ function draw() {
 
 		// slow
 		if (mouseIsPressed) {
-			if (p) {
-				p = false;
-				e = true;
-				s = 1;
+			if (pressed) {
+				pressed = false;
+				ended = true;
+				slowing = 1;
 			}
-			if (abs(r) > d) r /= s;
-			if (abs(fr) > d) fr /= s;
-			if (s < 3) s += 0.0005;
+			if (abs(r) > delta) r /= slowing;
+			if (abs(fr) > delta) fr /= slowing;
+			if (slowing < 3) slowing += 0.0005;
 		}
 		else { // normal
-			if (e) {
-				e = false;
-				p = true;
+			if (ended) {
+				ended = false;
+				pressed = true;
 			}
-			if (s > 1) {
-				s -= 0.0008;
-				if (s < 1) s = 1; 
-				r /= s;
-				fr /= s;
+			if (slowing > 1) {
+				slowing -= 0.0008;
+				if (slowing < 1) slowing = 1; 
+				r /= slowing;
+				fr /= slowing;
 			}
 		}
 
@@ -78,6 +80,9 @@ function draw() {
     circle(x, y, (i + 0.5) * 22);
 		pop();
   }
+
+	// BUG!!!!!!!
+	circle(2000, 0, 0);
 
 	// button previw (the ui will be in blipip.html)
 	push();
