@@ -17,19 +17,8 @@
 		) return;
 	
 		// abrir fullscreen
-		clickAbrirFs();
-	
-		// primera vez fs
-		if (flIniciar) {
-			// btnEsc = new BotonEsc(100, 300, 120, 50);
-			flIniciar = false;
-		}
-
-		// boton esc
-		if (!flPortada) {
-			// if (btnEsc.sobre(mouseX, mouseY)) clickCerrarFs();
-			return;
-		}
+		if (flPortada) clickAbrirFs();
+		else clickCerrarFs();
 	}
 
 	class BotonEsc {
