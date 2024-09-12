@@ -64,8 +64,9 @@
 	// 	setY(s_y) { this.pos.y = s_y; }
 	// }
 
-	document.addEventListener("DOMContentLoaded", function() {
-    // Asociamos la función al evento de click o touchstart
-    document.getElementById("q5Canvas0").addEventListener("click", clickAbrirFs);
-    document.getElementById("q5Canvas0").addEventListener("touchstart", clickAbrirFs);
+	document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("q5Canvas0").addEventListener("touchstart", () => {
+			if (flPortada) clickAbrirFs();
+			else clickCerrarFs();
+		});
 });
