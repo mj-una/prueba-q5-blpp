@@ -65,7 +65,7 @@
 	// }
 
 	document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("q5Canvas0").addEventListener("touchstart", () => {
+    document.getElementById("q5Canvas0").addEventListener("click", () => {
 			if (flPortada) clickAbrirFs();
 			else clickCerrarFs();
 		});
