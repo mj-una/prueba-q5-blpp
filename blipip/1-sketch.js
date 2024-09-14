@@ -83,8 +83,9 @@ function draw() {
 		if (flSended) text("flSended", -100, 125);
 		if (flChanged) text("flChanged", -100, 150);
 		if (flOpened) text("flOpened", -100, 175);
-		if (e1) text(`e1: ${e1}`, -210, 230);
-		if (e2) text(`e2: ${e2}`, -210, 330);
+		textSize(12);
+		if (e1) text(`e1: ${JSON.stringify(e1)}`, -150, 230);
+		if (e2) text(`e2: ${JSON.stringify(e2)}`, -150, 330);
 
 		pop();
 		return;
@@ -106,8 +107,9 @@ function draw() {
 	if (flSended) text("flSended", -100, 125);
 	if (flChanged) text("flChanged", -100, 150);
 	if (flOpened) text("flOpened", -100, 175);
-	if (e1) text(`e1: ${e1}`, -210, 230);
-	if (e2) text(`e2: ${e2}`, -210, 330);
+	textSize(12);
+	if (e1) text(`e1: ${JSON.stringify(e1)}`, -150, 230);
+	if (e2) text(`e2: ${JSON.stringify(e2)}`, -150, 330);
 	pop();
 
 	if (flIniciar) return;
