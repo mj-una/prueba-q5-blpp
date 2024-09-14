@@ -1,9 +1,6 @@
 
 const FACTOR = 0.5; // 1 is 1080x1920
 
-let visibles = [];
-let cargados = [];
-
 let flPortada, flIniciar, flVertical;
 
 let flTouched = false;
@@ -12,7 +9,6 @@ let flSended = false;
 let flChanged = false;
 let flOpened = false;
 
-// let btnEsc;
 let dejavu;
 
 function preload() {
@@ -37,10 +33,7 @@ function setup() {
 	setTimeout(()=>{
 		document.getElementById("q5Canvas0").addEventListener("pointerdown", (e) => {
 			flClicked = {estado: true, tipo: e.pointerType };
-			if (flPortada) {
-				clickAbrirFs();
-				flSended = true;
-			}
+			if (flPortada) clickAbrirFs();
 			else clickCerrarFs();
 		});
 	});

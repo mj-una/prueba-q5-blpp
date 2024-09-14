@@ -6,6 +6,8 @@ function clickAbrirFs() {
 		document.documentElement.webkitRequestFullscreen(); // SFI
 	else if (document.documentElement.mozRequestFullScreen)
 		document.documentElement.mozRequestFullScreen(); // FFX
+
+	flSended = true;
 }
 
 // click cerrar fullscreen
@@ -25,7 +27,7 @@ function cambiarHaciaAbierta() {
 	setTimeout(() => {
 		document.querySelector("header").style.display = "none";
 		document.querySelector("footer").style.display = "none";
-		document.querySelector("main").style.width = "100wh";
+		document.querySelector("main").style.width = "100vw";
 		document.querySelector("main").style.height = "100svh";
 		flOpened = true;
 		let _w, _h;
