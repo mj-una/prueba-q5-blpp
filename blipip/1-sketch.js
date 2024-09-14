@@ -6,6 +6,7 @@ let cargados = [];
 
 let flPortada, flIniciar, flVertical;
 
+let flTouched = false;
 let flClicked = false;
 let flSended = false;
 let flChanged = false;
@@ -34,8 +35,8 @@ function setup() {
 	flIniciar = true;
 
 	setTimeout(()=>{
-		document.getElementById("q5Canvas0").addEventListener("click", () => {
-			flClicked = true;
+		document.getElementById("q5Canvas0").addEventListener("pointerdown", (e) => {
+			flClicked = {estado: true, tipo: e.pointerType };
 			if (flPortada) {
 				clickAbrirFs();
 				flSended = true;
@@ -79,7 +80,8 @@ function draw() {
 		pop();
 
 		push();
-		if (flClicked) text("flClicked", -100, 100);
+		if (flTouched) text("flTouched", -100, 50);
+		if (flClicked.estado) text("flClicked " + flClicked.tipo, -100, 100);
 		if (flSended) text("flSended", -100, 125);
 		if (flChanged) text("flChanged", -100, 150);
 		if (flOpened) text("flOpened", -100, 175);
@@ -98,7 +100,8 @@ function draw() {
 	circle(0, 0, 300);
 
 	push();
-	if (flClicked) text("flClicked", -100, 100);
+	if (flTouched) text("flTouched", -100, 50);
+	if (flClicked.estado) text("flClicked " + flClicked.tipo, -100, 100);
 	if (flSended) text("flSended", -100, 125);
 	if (flChanged) text("flChanged", -100, 150);
 	if (flOpened) text("flOpened", -100, 175);
@@ -107,4 +110,12 @@ function draw() {
 	if (flIniciar) return;
 
 	// btnEsc.dibujar();
+}
+
+function touchStarted() {
+	flTouched = true;
+}
+
+function mousePressed() {
+	flTouched = true;
 }
