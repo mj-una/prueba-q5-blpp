@@ -1,7 +1,15 @@
 // click abrir fullscreen
 function clickAbrirFs() {
-	if (document.documentElement.requestFullscreen)
-		document.documentElement.requestFullscreen(); // CHR
+	if (document.documentElement.requestFullscreen) {
+		// document.documentElement.requestFullscreen(); // CHR
+
+		document.documentElement.requestFullscreen().then(() => {
+			console.log("___oki requestFullscreen");
+		}).catch((error) => {
+			e2 = error;
+		});
+	}
+
 	else if (document.documentElement.webkitRequestFullscreen)
 		document.documentElement.webkitRequestFullscreen(); // SFI
 	else if (document.documentElement.mozRequestFullScreen)
@@ -78,3 +86,6 @@ function eventoCambioFs() {
 // escuchar cambio de fullscreen
 document.addEventListener("fullscreenchange", eventoCambioFs); // CHR y FFX
 document.addEventListener("webkitfullscreenchange", eventoCambioFs); // SFI
+
+// escuchar error de fullscreen
+document.addEventListener('fullscreenerror', (event) => { e2 = event });

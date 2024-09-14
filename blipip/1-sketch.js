@@ -9,6 +9,9 @@ let flSended = false;
 let flChanged = false;
 let flOpened = false;
 
+let e1 = null;
+let e2 = null;
+
 let dejavu;
 
 function preload() {
@@ -36,6 +39,8 @@ function setup() {
 			if (flPortada) clickAbrirFs();
 			else clickCerrarFs();
 		});
+
+
 	});
 }
 
@@ -78,6 +83,9 @@ function draw() {
 		if (flSended) text("flSended", -100, 125);
 		if (flChanged) text("flChanged", -100, 150);
 		if (flOpened) text("flOpened", -100, 175);
+		if (e1) text(`e1: ${e1}`, -210, 230);
+		if (e2) text(`e2: ${e2}`, -210, 330);
+
 		pop();
 		return;
 	}
@@ -98,6 +106,8 @@ function draw() {
 	if (flSended) text("flSended", -100, 125);
 	if (flChanged) text("flChanged", -100, 150);
 	if (flOpened) text("flOpened", -100, 175);
+	if (e1) text(`e1: ${e1}`, -210, 230);
+	if (e2) text(`e2: ${e2}`, -210, 330);
 	pop();
 
 	if (flIniciar) return;
