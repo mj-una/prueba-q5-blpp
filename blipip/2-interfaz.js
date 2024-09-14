@@ -63,10 +63,3 @@
 	// 	setX(s_x) { this.pos.x = s_x; }
 	// 	setY(s_y) { this.pos.y = s_y; }
 	// }
-
-	document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("q5Canvas0").addEventListener("click", () => {
-			if (flPortada) clickAbrirFs();
-			else clickCerrarFs();
-		});
-});

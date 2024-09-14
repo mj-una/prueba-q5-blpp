@@ -10,7 +10,7 @@ let flPortada, flIniciar, flVertical;
 let dejavu;
 
 function preload() {
-	dejavu = loadFont("../fonts/DejaVuSansMono.ttf");
+	dejavu = loadFont("../fonts/DejaVuSansMono.ttf"); // ***
 }
 
 function setup() {
@@ -27,6 +27,13 @@ function setup() {
 
 	flPortada = true;
 	flIniciar = true;
+
+	setTimeout(()=>{
+		document.getElementById("q5Canvas0").addEventListener("click", () => {
+			if (flPortada) clickAbrirFs();
+			else clickCerrarFs();
+		});
+	});
 }
 
 function draw() {
