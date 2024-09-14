@@ -6,6 +6,11 @@ let cargados = [];
 
 let flPortada, flIniciar, flVertical;
 
+let flClicked = false;
+let flSended = false;
+let flChanged = false;
+let flOpened = false;
+
 // let btnEsc;
 let dejavu;
 
@@ -30,7 +35,11 @@ function setup() {
 
 	setTimeout(()=>{
 		document.getElementById("q5Canvas0").addEventListener("click", () => {
-			if (flPortada) clickAbrirFs();
+			flClicked = true;
+			if (flPortada) {
+				clickAbrirFs();
+				flSended = true;
+			}
 			else clickCerrarFs();
 		});
 	});
@@ -68,6 +77,13 @@ function draw() {
 		fill(120, 90, 250);
 		text("click!", 0, 0);
 		pop();
+
+		push();
+		if (flClicked) text("flClicked", -100, 100);
+		if (flSended) text("flSended", -100, 125);
+		if (flChanged) text("flChanged", -100, 150);
+		if (flOpened) text("flOpened", -100, 175);
+		pop();
 		return;
 	}
 
@@ -80,6 +96,13 @@ function draw() {
 	rect(0, 0, 90 * 5.6, 160 * 5.6)
 	fill(110, 210, 250, 150);
 	circle(0, 0, 300);
+
+	push();
+	if (flClicked) text("flClicked", -100, 100);
+	if (flSended) text("flSended", -100, 125);
+	if (flChanged) text("flChanged", -100, 150);
+	if (flOpened) text("flOpened", -100, 175);
+	pop();
 
 	if (flIniciar) return;
 

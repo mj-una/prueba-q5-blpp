@@ -27,7 +27,7 @@ function cambiarHaciaAbierta() {
 		document.querySelector("footer").style.display = "none";
 		document.querySelector("main").style.width = "100wh";
 		document.querySelector("main").style.height = "100svh";
-
+		flOpened = true;
 		let _w, _h;
 		
 		// caso vertical
@@ -69,6 +69,7 @@ function eventoCambioFs() {
   }
 	else { // estaba cerrada y se abrio
     cambiarHaciaAbierta();
+		flChanged = true;
   }
 }
 
