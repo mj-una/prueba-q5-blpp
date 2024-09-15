@@ -4,9 +4,8 @@ function clickAbrirFs() {
 		// document.documentElement.requestFullscreen(); // CHR
 
 		document.documentElement.requestFullscreen().then(() => {
-			console.log("___oki requestFullscreen");
 		}).catch((error) => {
-			e2 = error;
+			e1 = error;
 		});
 	}
 
