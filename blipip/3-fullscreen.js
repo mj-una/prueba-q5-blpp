@@ -34,22 +34,22 @@ function cambiarHaciaAbierta() {
 	setTimeout(() => {
 		document.querySelector("header").style.display = "none";
 		document.querySelector("footer").style.display = "none";
-		document.querySelector("main").style.width = "100vw";
+		document.querySelector("main").style.width = "100svw";
 		document.querySelector("main").style.height = "100svh";
 		flOpened = true;
 		let _w, _h;
 		
 		// caso vertical
-		if (screen.width * 16 < screen.height * 9) {
+		if (window.visualViewport.width * 16 < window.visualViewport.height * 9) {
 			flVertical = true;
 			_w = 1080 * FACTOR;
-			_h = (screen.height * _w) / screen.width;
+			_h = (window.visualViewport.height * _w) / window.visualViewport.width;
 		}
 		// caso horizontal
 		else {
 			flVertical = false;
 			_h = 1920 * FACTOR;
-			let prp = (screen.width * _h) / screen.height;
+			let prp = (window.visualViewport.width * _h) / window.visualViewport.height;
 			_w = constrain(prp, 1080 * FACTOR, _h);
 		}
 		console.log(_w, _h);
